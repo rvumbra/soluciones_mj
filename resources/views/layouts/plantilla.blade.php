@@ -40,11 +40,7 @@
     @include('mods.sidebar')
     <div id="app" class="container">
         <main class="py-4">
-            <div class="row justify-content-center">
-                <div class="col-md-11">
-                    @yield('content')
-                </div>
-            </div>
+            @yield('content')
         </main>
     </div>
     @include('mods.footer')

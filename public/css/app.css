@@ -6,13 +6,12 @@ html, body {
 }
 
 #app {
-    display: flex;
-    flex-direction: column;
     flex: 1;
+    margin-left: 80px;
 }
 
 #app.shifted {
-    margin-left: 205px;
+    margin-left: 250px;
 }
 
 main {
