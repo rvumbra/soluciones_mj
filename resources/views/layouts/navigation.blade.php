@@ -19,7 +19,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        @if (in_array(request()->segment(1), ['home', 'fest-days', 'list-users']))
+                        @if (in_array(request()->segment(1), ['home', 'list-fest', 'list-users']))
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-dropdown-link>

@@ -1,5 +1,3 @@
-# Soluciones Informáticas MJ
-
 # Requisitos para el proyecto
 
 - Herramientas y versiones
@@ -197,7 +195,79 @@ Una vez que el proyecto está listo para comenzar a desarrollar pasamos directam
     > 
     > En cuanto a los estilos, me he ceñido a los colores y estándares solicitados por la prueba.
     > 
+    > Todos los estilos de encuentran en la misma ruta:
+    > 
+    > ```bash
+    > ~/xampp/htdocs/soluciones_mj/public/css/app.css
+    > ```
+    > 
+    > Y el código JavaScript utilizado para todo el proyecto está todo comentado y ordenado en esta ruta:
+    > 
+    > ```bash
+    > ~/xampp/htdocs/soluciones_mj/public/js/code.js
+    > ```
+    > 
     
-- CRUD de usuarios.
-- Otra
-- Otra
+- Home
+    
+    > Para el calendario de la pantalla principal, se ha utilizado la librería [Year Calendar](https://year-calendar.github.io/js-year-calendar/getstarted) la cual es gratuita y de código libre, se ha instalado tal como viene en la documentación de la propia librería y configurado para servir como el calendario oficial del proyecto.
+    > 
+    > 
+    > Se dispone de un toggle que se muestra cuando en un día del calendario hay un evento añadido, dispone del color y del propio nombre del evento o eventos registrados para ese día.
+    > 
+    > La edición de los eventos se deberá realizar desde la lista de días festivos.
+    > 
+- CRUD de usuarios
+    
+    > Para el CRUD de usuarios, se ha generado sobre la lista disponible de los mismos (opción del menú) aplicando sobre dicha lista la librería [DataTables](https://datatables.net/) para aplicar un formato de tabla a la propia lista.
+    > 
+    > 
+    > Al seleccionar un usuario de la lista, se podrá editar o eliminar dicho registro mediante un modal emergente similar a la creación de un nuevo usuario.
+    > 
+    > Todos los modales envían peticiones AJAX al servidor y el enrutador de Laravel se encarga del resto, ubicado en la ruta: 
+    > 
+    > ```bash
+    > ~/xampp/htdocs/soluciones_mj/routes/web.php
+    > ```
+    > 
+    > En dicha ruta se encuentra cada endpoint del servidor al que se le puede realizar petición, incluyendo los métodos del respectivo controlador que actuarán sobre la petición.
+    > 
+    > ```php
+    > #region Lista de usuarios
+    > Route::get('/list-users', [UserController::class, 'index'])->name('userList.table');
+    > Route::post('list-users', [UserController::class, 'store']);
+    > Route::put('/list-users/{id}', [UserController::class, 'update']);
+    > Route::delete('/list-users/{id}', [UserController::class, 'destroy']);
+    > #endregion
+    > ```
+    > 
+    > El controlador UserController que se utiliza para el CRUD se genera mediante línea de comandos ubicándonos en la raíz del proyecto y escribiendo el comando:
+    > 
+    > ```bash
+    > php artisan make:controller UserController --resource
+    > ```
+    > 
+    > Este comando creará el controlador vacío con todos los métodos disponibles para la modificación del modelo User. Se encargará de comunicar con el modelo y la vista atacando a la misma petición que ha recibido validando los datos de entrada y actuando en respuesta.
+    > 
+    
+- CRUD de días festivos
+    
+    > Se hace uso de un nuevo modelo denominado Fest que se crea de nuevo junto al controlador mediante línea de comandos.
+    > 
+    > 
+    > ```bash
+    > php artisan make:model Fest --all
+    > php artisan make:controller FestController --all
+    > ```
+    > 
+    > Al añadirlo, hay que definir los métodos en el controller al igual que en el CRUD de usuarios y volver a definir las rutas necesarias dentro del archivo ‘web.php’.
+    > 
+    > Para evitar problemas de autorización por el middleware ‘auth’, hay 2 opciones:
+    > 
+    > - Definir en el método authorize() que devuelva true, ya que por defecto devolverá falso, pero también habrá que añadir validaciones extra innecesarias y puede llegar a ser redundancia en el código en caso de tener muchos modelos.
+    > - Borrar los archivos generados de Request para el modelo Fest para evitar problemas con validaciones y autorización sobre el modelo para el usuario.
+    > 
+    > Se podrá editar los campos nombre, fecha, color y si es recurrente, indicando que dicho evento se propagará a lo largo de los años.
+    > 
+    > El diseño será similar al CRUD de usuarios.
+    >

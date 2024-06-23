@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    margin: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -8,6 +8,7 @@ html, body {
 #app {
     flex: 1;
     margin-left: 80px;
+    background-color: whitesmoke;
 }
 
 #app.shifted {
@@ -23,13 +24,9 @@ main {
     flex-shrink: 0;
 }
 
-.wrapper {
-    display: flex;
-}
-
 .sidebar {
     width: 250px;
-    background-color: blue;
+    background-color: #0F3489;
     flex-shrink: 0;
 }
 
@@ -38,7 +35,7 @@ main {
 }
 
 .main-sidebar{
-    background-color: blue;
+    background-color: #0F3489;
 }
 
 .list-item{
@@ -68,4 +65,102 @@ hr{
 
 .list-menu li{
     color: white;
+}
+
+#userList_title{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+#userList_table{
+    background-color: white;
+}
+
+#userList_table th{
+    background-color: #0F3489;
+    color: white;
+}
+
+select[name=userList_table_length]{
+    width: 60px;
+}
+
+#userList_table_container{
+    background-color: white;
+    padding: 20px;
+    border: 1px ridge rgb(182, 182, 182);
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#userList_btnGroup{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+#userList_btnGroup button{
+    background-color: #0F3489;
+    color:white;
+    width: 110px;
+}
+
+.modal-header{
+    background-color: #0F3489 !important;
+    color:white !important;
+}
+.close{
+    color:white !important;
+}
+
+#festList_title{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+#festList_table{
+    background-color: white;
+}
+
+#festList_table th{
+    background-color: #0F3489;
+    color: white;
+}
+
+select[name=festList_table_length]{
+    width: 60px;
+}
+
+#festList_table_container{
+    background-color: white;
+    padding: 20px;
+    border: 1px ridge rgb(182, 182, 182);
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#festList_btnGroup{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+#festList_btnGroup button{
+    background-color: #0F3489;
+    color:white;
+    width: 110px;
+}
+
+.event-window-container{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+#colorOfEvent{
+    margin-right: 10px;
 }

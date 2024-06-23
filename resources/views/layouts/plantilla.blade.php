@@ -8,22 +8,30 @@
     <title>Soluciones Informáticas MJ</title>
 
     <?php //PLUGINS CSS?>
+    {{--Boostrap--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {{--ScrollBars--}}
     <link rel="stylesheet" href="{{url('/')}}/css/plugins/overlayScrollBars.min.css">
     {{--Theme adminLTE--}}
     <link rel="stylesheet" href="{{url('/')}}/css/plugins/adminlte.min.css">
     {{--Notie--}}
     <link rel="stylesheet" href="{{url('/')}}/css/plugins/notie.css">
+    {{--DataTable--}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    {{--Year Calendar--}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
+    <!-- Spectrum CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css" />
     {{--CSS MI CODIGO--}}
     <link rel="stylesheet" href="{{url('/')}}/css/app.css"></script>
 
+    {{--JQuery--}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <?php //PLUGINS JS?>
     {{--Fontawesome--}}
     <script src="https://kit.fontawesome.com/e632f1f723.js" crossorigin="anonymous" ></script>
-    {{--JQuery--}}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     {{--ScrollBars--}}
     <script src="{{url('/')}}/js/plugins/scrollbars.js" ></script>
     {{--Poper JS--}}
@@ -32,15 +40,27 @@
     <script src="{{url('/')}}/js/plugins/adminlte.js"></script>
     {{--JS Notie--}}
     <script src="{{url('/')}}/js/plugins/notie.js"></script>
+    {{--DataTable--}}
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    {{--Boostrap--}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{--Year Calendar--}}
+    <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
+    <!-- Spectrum JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
     {{--JS MI CODIGO--}}
-    <script src="{{url('/')}}/js/code.js"></script>
+    <script src="{{url('/')}}/js/code.js?v=1.2"></script>
 </head>
 <body class="sidebar-mini layout-fixed sidebar-collapse">
     @include('mods.header')
     @include('mods.sidebar')
-    <div id="app" class="container">
+    <div id="app">
         <main class="py-4">
-            @yield('content')
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
     @include('mods.footer')
